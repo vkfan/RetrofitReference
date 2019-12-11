@@ -1,0 +1,108 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'kotlin-android'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.radio.chat"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 22
+        renderscriptSupportModeEnabled true
+        multiDexEnabled true
+        resValue "string", "places_api_key", (project.findProperty("PLACES_API_KEY") ?: "AIzaSyDhJ1SirY6i2eF_7--bBaUXyP3IIfR1mhY")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation project(':empty_state_recyclerview')
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.4'
+    implementation 'com.romandanylyk:pageindicatorview:1.0.1'
+    implementation 'me.grantland:autofittextview:0.2.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    implementation 'com.github.ivbaranov:materiallettericon:0.2.3'
+    implementation 'com.chaos.view:pinview:1.4.2'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.0.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'com.github.hani-momanii:SuperNova-Emoji:1.0'
+    implementation 'com.writingminds:FFmpegAndroid:0.3.2'
+    implementation 'com.github.sushinpv:SuziVideoThumbnailLoader:0.1.0'
+    implementation 'org.jcodec:jcodec-android:0.1.9'
+    //GIF Viewer
+    //implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7'
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.8.5') { transitive = true }
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.10.1'
+    implementation 'com.amazonaws:aws-android-sdk-cognito:2.7.7'
+    implementation project(':picker')
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.github.halilozercan:BetterVideoPlayer:1.1.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+    implementation 'io.supercharge:funnyloader:0.2.0'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.uphyca:stetho_realm:2.1.0'
+    implementation 'com.github.florent37:diagonallayout:1.0.9'
+    implementation 'com.airbnb.android:lottie:2.5.0'
+    implementation project(':DateTimeUtils')
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
+    implementation 'com.google.firebase:firebase-appindexing:17.1.0'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-database:16.1.0'
+    implementation 'com.firebase:firebase-client-android:2.5.0'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    /*implementation 'com.google.android.libraries.places:places-compat:1.0.0'*/
+    implementation 'com.google.android.libraries.places:places:1.0.0'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation project(':circlerefresh')
+    implementation 'io.github.inflationx:calligraphy3:3.1.0'
+    implementation 'io.github.inflationx:viewpump:1.0.0'
+    implementation 'com.github.GwonHyeok:StickySwitch:0.0.15'
+    implementation 'io.realm:android-adapters:2.1.0'
+    implementation 'com.yarolegovich:lovely-dialog:1.0.4'
+    implementation 'com.github.Adilhusen:circle-progress-ad-android-:1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0'
+    implementation 'com.nex3z:notification-badge:1.0.2'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.jakewharton:butterknife:9.0.0-SNAPSHOT'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-SNAPSHOT'
+    implementation 'com.firebaseui:firebase-ui-database:1.0.1'
+
+}
+apply plugin: 'com.google.gms.google-services'
